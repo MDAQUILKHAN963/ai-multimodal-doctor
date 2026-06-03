@@ -1,0 +1,30 @@
+# Run all 3 services together. Used in Week 8 for deployment.
+# Local dev: prefer running each service in its own terminal for hot reload.
+
+services:
+  ml_server:
+    build: ./ml_server
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./ml_server/.env
+    volumes:
+      - ./ml_server/models:/app/models:ro
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - ML_SERVER_URL=http://ml_server:8000
+    depends_on:
+      - ml_server
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
