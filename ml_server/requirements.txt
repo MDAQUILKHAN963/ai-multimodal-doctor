@@ -1,0 +1,33 @@
+# --- Web framework ---
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+python-multipart==0.0.12
+python-dotenv==1.0.1
+
+# --- Vision (Week 2-3) — TensorFlow / Keras ---
+tensorflow>=2.17.0
+Pillow>=10.0.0
+opencv-python-headless>=4.9.0
+numpy>=1.26.0
+
+# --- NLP (Week 4) ---
+spacy>=3.7.0
+# Run after install: python -m spacy download en_core_sci_sm
+# (en_core_sci_sm comes from scispacy releases — install separately if spacy download fails)
+
+# --- RAG (Week 6) ---
+langchain>=0.2.0
+langchain-community>=0.2.0
+faiss-cpu>=1.8.0
+sentence-transformers>=3.0.0
+
+# --- LLM (Week 5) ---
+google-generativeai>=0.8.0
+google-genai>=1.0.0
+groq>=0.9.0
+
+# --- PDF reports (Week 7) ---
+fpdf2>=2.7.0
+
+# --- HTTP client (testing) ---
+requests>=2.31.0
