@@ -1,0 +1,13 @@
+Pneumonia
+
+Pneumonia is an infection that inflames the air sacs in one or both lungs. The air sacs may fill with fluid or pus, causing symptoms such as cough with phlegm, fever, chills, and difficulty breathing.
+
+Types of pneumonia include bacterial pneumonia (most commonly caused by Streptococcus pneumoniae), viral pneumonia (caused by influenza, COVID-19, RSV), fungal pneumonia, and walking pneumonia (Mycoplasma pneumoniae).
+
+Common symptoms include cough producing yellow, green, or bloody mucus, fever above 38C (100.4F), shaking chills, shortness of breath, rapid or shallow breathing, sharp or stabbing chest pain that worsens when breathing deeply, loss of appetite, fatigue, and confusion especially in older adults.
+
+Diagnosis involves physical examination, chest X-ray, blood tests, and sputum culture. Chest X-rays typically show consolidation in the affected lung areas.
+
+Treatment depends on the type and severity. Bacterial pneumonia is treated with antibiotics. Viral pneumonia may require antiviral medications. Hospitalization is needed for severe cases, elderly patients, infants, and those with weakened immune systems.
+
+Prevention includes pneumococcal vaccines, influenza vaccines, good hygiene, not smoking, and maintaining a healthy immune system. High-risk groups are adults over 65, children under 2, smokers, and immunocompromised individuals.
