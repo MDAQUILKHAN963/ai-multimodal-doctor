@@ -18,8 +18,12 @@ export function SocketProvider({ children }) {
       return;
     }
 
-    // Connect through the Vite proxy so no hardcoded port
-    const socket = io({ auth: { token }, transports: ['websocket', 'polling'] });
+    // In dev, connect through the Vite proxy (empty URL = same origin).
+    // In production, connect to the deployed backend (VITE_API_URL).
+    const socket = io(import.meta.env.VITE_API_URL || undefined, {
+      auth: { token },
+      transports: ['websocket', 'polling'],
+    });
     socketRef.current = socket;
 
     socket.on('connect', () => {

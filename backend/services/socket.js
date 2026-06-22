@@ -5,7 +5,7 @@ let io = null;
 
 function init(httpServer) {
   io = new Server(httpServer, {
-    cors: { origin: 'http://localhost:5173', credentials: true },
+    cors: { origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true },
   });
 
   // Authenticate every socket connection with the JWT

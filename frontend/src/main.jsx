@@ -2,10 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 import App from './App.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { SocketProvider } from './context/SocketContext.jsx';
 import './index.css';
+
+// In production, point axios at the deployed backend (set VITE_API_URL on Vercel).
+// In dev it stays empty, so requests use the Vite proxy.
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

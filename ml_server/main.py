@@ -17,7 +17,7 @@ app = FastAPI(title="AI Doctor ML Server", version="0.3.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5000", "http://localhost:5173"],
+    allow_origins=["*"],  # called server-to-server by the backend; safe to allow all
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
