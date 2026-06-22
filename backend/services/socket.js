@@ -4,8 +4,18 @@ const jwt = require('jsonwebtoken');
 let io = null;
 
 function init(httpServer) {
+  // Allow the configured client URL, localhost (dev), and any Vercel preview deploy
+  const corsOrigin = (origin, cb) => {
+    if (!origin) return cb(null, true);
+    const allowed =
+      origin === process.env.CLIENT_URL ||
+      origin === 'http://localhost:5173' ||
+      /\.vercel\.app$/.test(new URL(origin).hostname);
+    cb(null, allowed);
+  };
+
   io = new Server(httpServer, {
-    cors: { origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true },
+    cors: { origin: corsOrigin, credentials: true },
   });
 
   // Authenticate every socket connection with the JWT

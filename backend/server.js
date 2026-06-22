@@ -23,7 +23,17 @@ const PORT       = process.env.PORT || 5000;
 
 app.use(helmet());
 app.use(morgan('dev'));
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true }));
+
+// Allow the configured client URL, localhost (dev), and any Vercel preview deploy
+const corsOrigin = (origin, cb) => {
+  if (!origin) return cb(null, true); // non-browser requests (curl, server-to-server)
+  const allowed =
+    origin === process.env.CLIENT_URL ||
+    origin === 'http://localhost:5173' ||
+    /\.vercel\.app$/.test(new URL(origin).hostname);
+  cb(null, allowed);
+};
+app.use(cors({ origin: corsOrigin, credentials: true }));
 app.use(express.json({ limit: '10mb' }));
 
 const authLimiter = rateLimit({
