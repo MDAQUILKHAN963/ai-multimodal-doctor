@@ -35,14 +35,14 @@ export default function ResetPassword() {
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mx-auto mb-5 shadow-glow">
             <span className="text-3xl">🔒</span>
           </div>
-          <h1 className="text-2xl font-bold text-white">Set new password</h1>
+          <h1 className="text-2xl font-bold text-navy-900">Set new password</h1>
           <p className="text-slate-500 mt-1 text-sm">Choose a strong password of at least 6 characters.</p>
         </div>
 
         <div className="card p-8">
           <form onSubmit={submit} className="space-y-5">
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
                 New password
               </label>
               <input
@@ -55,7 +55,7 @@ export default function ResetPassword() {
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
                 Confirm password
               </label>
               <input
@@ -76,7 +76,7 @@ export default function ResetPassword() {
           <div className="glow-divider my-6" />
 
           <p className="text-center text-sm text-slate-500">
-            <Link to="/login" className="text-blue-400 font-semibold hover:text-blue-300 transition">
+            <Link to="/login" className="text-blue-600 font-semibold hover:text-blue-700 transition">
               Back to sign in
             </Link>
           </p>

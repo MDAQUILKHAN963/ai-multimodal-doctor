@@ -1,5 +1,5 @@
 export function SkeletonLine({ className = '' }) {
-  return <div className={`animate-pulse bg-slate-700/50 rounded ${className}`} />;
+  return <div className={`animate-pulse bg-slate-200 rounded ${className}`} />;
 }
 
 export function SkeletonCard({ rows = 3 }) {
@@ -18,7 +18,7 @@ export function SkeletonCard({ rows = 3 }) {
 export function SkeletonTable({ rows = 5 }) {
   return (
     <div className="card overflow-hidden">
-      <div className="px-5 py-3 bg-dark-600 border-b border-slate-800">
+      <div className="px-5 py-3 bg-dark-600 border-b border-slate-200">
         <SkeletonLine className="h-3 w-48" />
       </div>
       <ul className="divide-y divide-slate-800">

@@ -44,7 +44,7 @@ export default function SymptomChat() {
   return (
     <div className="space-y-5 animate-slide-up">
       <div>
-        <h1 className="text-2xl font-black text-white">Symptom Checker</h1>
+        <h1 className="text-2xl font-black text-navy-900">Symptom Checker</h1>
         <p className="text-slate-500 text-sm mt-1">
           Describe your symptoms and get instant AI-powered assessment and guidance.
         </p>
@@ -69,7 +69,7 @@ export default function SymptomChat() {
                 <div className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                   m.role === 'user'
                     ? 'bg-blue-600 text-white rounded-br-sm'
-                    : 'bg-dark-600 border border-slate-700/50 text-slate-200 rounded-bl-sm'
+                    : 'bg-dark-600 border border-slate-200 text-slate-800 rounded-bl-sm'
                 }`}>
                   {m.isMarkdown && m.role === 'ai'
                     ? <div className="prose prose-sm prose-invert max-w-none prose-p:my-1">
@@ -80,7 +80,7 @@ export default function SymptomChat() {
                   {m.data?.entities?.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       {m.data.entities.map((e, j) => (
-                        <span key={j} className="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs px-2 py-0.5 rounded-full font-medium">
+                        <span key={j} className="bg-cyan-500/20 text-cyan-600 border border-cyan-500/30 text-xs px-2 py-0.5 rounded-full font-medium">
                           {e}
                         </span>
                       ))}
@@ -95,7 +95,7 @@ export default function SymptomChat() {
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mr-2 shrink-0">
                   <span className="text-white text-xs font-black">AI</span>
                 </div>
-                <div className="bg-dark-600 border border-slate-700/50 rounded-2xl rounded-bl-sm px-4 py-3">
+                <div className="bg-dark-600 border border-slate-200 rounded-2xl rounded-bl-sm px-4 py-3">
                   <div className="flex gap-1.5 items-center">
                     {[0, 150, 300].map((d) => (
                       <span key={d} className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
@@ -109,7 +109,7 @@ export default function SymptomChat() {
           </div>
 
           {/* Input */}
-          <div className="border-t border-slate-800 p-4 bg-dark-800">
+          <div className="border-t border-slate-200 p-4 bg-dark-800">
             <form onSubmit={(e) => { e.preventDefault(); send(); }} className="flex gap-2">
               <input value={input} onChange={(e) => setInput(e.target.value)}
                 placeholder="Describe your symptoms..." disabled={loading}
@@ -128,8 +128,8 @@ export default function SymptomChat() {
             <div className="space-y-2">
               {SUGGESTIONS.map((s, i) => (
                 <button key={i} onClick={() => send(s)} disabled={loading}
-                  className="w-full text-left text-xs text-slate-400 bg-dark-600 hover:bg-dark-500
-                             hover:text-slate-200 px-3 py-2.5 rounded-xl border border-slate-700/50
+                  className="w-full text-left text-xs text-slate-500 bg-dark-600 hover:bg-dark-500
+                             hover:text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200
                              hover:border-blue-500/30 transition-all disabled:opacity-40">
                   &ldquo;{s}&rdquo;
                 </button>
@@ -141,10 +141,10 @@ export default function SymptomChat() {
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">Pipeline</p>
             <ol className="space-y-3">
               {[
-                { icon: '🔍', text: 'AI detects symptoms & medical terms', color: 'text-blue-400' },
+                { icon: '🔍', text: 'AI detects symptoms & medical terms', color: 'text-blue-600' },
                 { icon: '📚', text: 'Medical knowledge base is searched',   color: 'text-cyan-400' },
-                { icon: '✦',  text: 'AI generates doctor-style response',   color: 'text-violet-400' },
-                { icon: '🚨', text: 'Emergency symptoms trigger an alert',  color: 'text-rose-400' },
+                { icon: '✦',  text: 'AI generates doctor-style response',   color: 'text-violet-600' },
+                { icon: '🚨', text: 'Emergency symptoms trigger an alert',  color: 'text-rose-600' },
               ].map(({ icon, text, color }, i) => (
                 <li key={i} className="flex items-start gap-3 text-xs text-slate-500">
                   <span className={`${color} text-base shrink-0 mt-0.5`}>{icon}</span>

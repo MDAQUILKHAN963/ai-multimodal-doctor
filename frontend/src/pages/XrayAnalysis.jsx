@@ -43,7 +43,7 @@ export default function XrayAnalysis() {
   return (
     <div className="space-y-6 animate-slide-up">
       <div>
-        <h1 className="text-2xl font-black text-white">X-ray Analysis</h1>
+        <h1 className="text-2xl font-black text-navy-900">X-ray Analysis</h1>
         <p className="text-slate-500 text-sm mt-1">
           Upload a chest X-ray for instant AI classification with a visual focus heatmap.
         </p>
@@ -60,7 +60,7 @@ export default function XrayAnalysis() {
               <div className="mt-4">
                 <p className="text-xs text-slate-500 mb-2 font-semibold uppercase tracking-widest">Preview</p>
                 <img src={preview} alt="X-ray preview"
-                  className="rounded-xl border border-slate-700 w-full max-h-60 object-contain bg-slate-950" />
+                  className="rounded-xl border border-slate-200 w-full max-h-60 object-contain bg-slate-50" />
               </div>
             )}
           </div>
@@ -77,7 +77,7 @@ export default function XrayAnalysis() {
               ].map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 text-sm">
                   <span className="text-slate-500">{k}</span>
-                  <span className="text-slate-300 text-right font-medium">{v}</span>
+                  <span className="text-slate-700 text-right font-medium">{v}</span>
                 </div>
               ))}
             </div>
@@ -95,13 +95,13 @@ export default function XrayAnalysis() {
                   <span className="text-xl">🫁</span>
                 </div>
               </div>
-              <p className="text-white font-semibold">Analyzing X-ray...</p>
+              <p className="text-navy-900 font-semibold">Analyzing X-ray...</p>
               <p className="text-xs text-slate-500">Running AI analysis, please wait...</p>
             </div>
           )}
 
           {error && (
-            <div className="bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm px-4 py-3 rounded-xl">
+            <div className="bg-rose-500/10 border border-rose-500/30 text-rose-600 text-sm px-4 py-3 rounded-xl">
               {error}
             </div>
           )}
@@ -129,7 +129,7 @@ export default function XrayAnalysis() {
               <div className="w-20 h-20 rounded-3xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-4xl mb-4">
                 🫁
               </div>
-              <p className="font-semibold text-slate-400">No analysis yet</p>
+              <p className="font-semibold text-slate-500">No analysis yet</p>
               <p className="text-sm text-slate-600 mt-1">Upload an X-ray to see results here</p>
             </div>
           )}

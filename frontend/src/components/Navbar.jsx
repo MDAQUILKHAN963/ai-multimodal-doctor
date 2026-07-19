@@ -10,21 +10,24 @@ export default function Navbar() {
   const linkClass = ({ isActive }) =>
     `text-sm font-medium transition-all px-3 py-1.5 rounded-lg ${
       isActive
-        ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-        : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800'
+        ? 'bg-blue-500/20 text-blue-600 border border-blue-500/30'
+        : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'
     }`;
 
   return (
-    <nav className="bg-dark-800 border-b border-slate-800 sticky top-0 z-50">
+    <nav className="bg-dark-800 border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
 
         {/* Brand */}
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-glow">
-            <span className="text-white text-sm font-black">AI</span>
+          <div className="relative">
+            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-sm bg-mint-400" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-navy-800 to-blue-600 flex items-center justify-center shadow-glow">
+              <span className="text-white text-sm font-black">AI</span>
+            </div>
           </div>
           <div className="flex flex-col leading-none">
-            <span className="font-bold text-white text-base">AI Doctor</span>
+            <span className="font-bold text-navy-900 text-base">AI Doctor</span>
             <span className="text-xs text-slate-500 hidden sm:block">Medical AI Assistant</span>
           </div>
         </Link>
@@ -40,24 +43,24 @@ export default function Navbar() {
               <NavLink to="/admin" className={linkClass}>⭐ Admin</NavLink>
             )}
 
-            <div className="w-px h-5 bg-slate-700 mx-1" />
+            <div className="w-px h-5 bg-slate-200 mx-1" />
 
             <NotificationBell />
 
-            <div className="w-px h-5 bg-slate-700 mx-1" />
+            <div className="w-px h-5 bg-slate-200 mx-1" />
 
             <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5">
+              <div className="hidden sm:flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-lg px-3 py-1.5">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center">
                   <span className="text-white text-xs font-bold">
                     {user?.name?.[0]?.toUpperCase() || 'U'}
                   </span>
                 </div>
-                <span className="text-sm text-slate-300">{user?.name}</span>
+                <span className="text-sm text-slate-700">{user?.name}</span>
               </div>
               <button
                 onClick={handleLogout}
-                className="text-sm text-rose-400 hover:text-rose-300 hover:bg-rose-500/10
+                className="text-sm text-rose-600 hover:text-rose-700 hover:bg-rose-500/10
                            px-3 py-1.5 rounded-lg transition-all border border-transparent
                            hover:border-rose-500/20"
               >

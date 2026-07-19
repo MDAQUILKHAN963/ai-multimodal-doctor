@@ -27,7 +27,7 @@ export default function NotificationBell() {
       <button
         onClick={toggle}
         className="relative w-9 h-9 flex items-center justify-center rounded-lg
-                   text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-all"
+                   text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all"
         title="Notifications"
       >
         <span className="text-lg">🔔</span>
@@ -41,14 +41,14 @@ export default function NotificationBell() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-80 bg-dark-700 border border-slate-700
+        <div className="absolute right-0 top-full mt-2 w-80 bg-dark-700 border border-slate-200
                         rounded-2xl shadow-2xl z-50 overflow-hidden animate-fade-in">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800">
-            <span className="text-sm font-semibold text-slate-200">Notifications</span>
+          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+            <span className="text-sm font-semibold text-slate-800">Notifications</span>
             {notifications.length > 0 && (
               <button
                 onClick={() => setOpen(false)}
-                className="text-xs text-slate-500 hover:text-slate-300 transition"
+                className="text-xs text-slate-500 hover:text-slate-700 transition"
               >
                 Close
               </button>
@@ -74,7 +74,7 @@ export default function NotificationBell() {
                       {n.emergency ? '🚨' : n.kind === 'xray' ? '🫁' : '💬'}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-sm font-medium ${n.emergency ? 'text-rose-400' : 'text-slate-200'}`}>
+                      <p className={`text-sm font-medium ${n.emergency ? 'text-rose-600' : 'text-slate-800'}`}>
                         {n.message}
                       </p>
                       {n.kind === 'xray' && n.confidence != null && (

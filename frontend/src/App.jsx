@@ -40,7 +40,7 @@ export default function App() {
       <Navbar />
 
       <div className="bg-amber-500/10 border-b border-amber-500/20 px-4 py-2">
-        <p className="text-amber-400/90 text-xs text-center font-medium">
+        <p className="text-amber-600/90 text-xs text-center font-medium">
           ⚕ Educational use only — Not a substitute for professional medical advice. Always consult a qualified doctor.
         </p>
       </div>
@@ -74,7 +74,7 @@ export default function App() {
         </Suspense>
       </main>
 
-      <footer className="border-t border-slate-800 bg-dark-800 py-4 mt-8">
+      <footer className="border-t border-slate-200 bg-dark-800 py-4 mt-8">
         <p className="text-center text-xs text-slate-600">
           AI Doctor &mdash; Multimodal Medical AI Assistant &mdash; For educational use only
         </p>

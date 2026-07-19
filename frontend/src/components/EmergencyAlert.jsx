@@ -6,12 +6,12 @@ export default function EmergencyAlert({ emergency }) {
         🚨
       </div>
       <div className="flex-1">
-        <p className="font-bold text-rose-400 text-base">Emergency Symptom Detected</p>
-        <p className="text-sm text-rose-400/80 mt-0.5">{emergency.message}</p>
+        <p className="font-bold text-rose-600 text-base">Emergency Symptom Detected</p>
+        <p className="text-sm text-rose-600/80 mt-0.5">{emergency.message}</p>
         {emergency.triggers?.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-3">
             {emergency.triggers.map((t, i) => (
-              <span key={i} className="bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs px-2.5 py-1 rounded-lg font-semibold">
+              <span key={i} className="bg-rose-500/20 text-rose-600 border border-rose-500/30 text-xs px-2.5 py-1 rounded-lg font-semibold">
                 {t}
               </span>
             ))}

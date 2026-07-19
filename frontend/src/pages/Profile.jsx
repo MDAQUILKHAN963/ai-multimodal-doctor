@@ -56,7 +56,7 @@ export default function Profile() {
   return (
     <div className="max-w-2xl mx-auto space-y-6 animate-slide-up">
       <div>
-        <h1 className="text-2xl font-black text-white">Profile</h1>
+        <h1 className="text-2xl font-black text-navy-900">Profile</h1>
         <p className="text-slate-500 text-sm mt-1">Manage your account details and password.</p>
       </div>
 
@@ -68,12 +68,12 @@ export default function Profile() {
           </span>
         </div>
         <div>
-          <p className="text-lg font-bold text-white">{user?.name}</p>
-          <p className="text-sm text-slate-400">{user?.email}</p>
+          <p className="text-lg font-bold text-navy-900">{user?.name}</p>
+          <p className="text-sm text-slate-500">{user?.email}</p>
           <span className={`mt-1 badge ${
             user?.role === 'admin'
-              ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-              : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+              ? 'bg-amber-500/20 text-amber-600 border border-amber-500/30'
+              : 'bg-blue-500/20 text-blue-600 border border-blue-500/30'
           }`}>
             {user?.role === 'admin' ? '⭐ Admin' : '👤 User'}
           </span>
@@ -85,7 +85,7 @@ export default function Profile() {
         <h2 className="section-title">Account Details</h2>
         <form onSubmit={handleProfile(saveProfile)} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
               Full name
             </label>
             <input
@@ -96,7 +96,7 @@ export default function Profile() {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
               Email address
             </label>
             <input
@@ -118,7 +118,7 @@ export default function Profile() {
         <h2 className="section-title">Change Password</h2>
         <form onSubmit={handlePwd(changePassword)} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
               Current password
             </label>
             <input
@@ -129,7 +129,7 @@ export default function Profile() {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
               New password
             </label>
             <input
@@ -142,11 +142,11 @@ export default function Profile() {
               })}
             />
             {pwdErrors.newPassword && (
-              <p className="text-xs text-rose-400 mt-1">{pwdErrors.newPassword.message}</p>
+              <p className="text-xs text-rose-600 mt-1">{pwdErrors.newPassword.message}</p>
             )}
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
               Confirm new password
             </label>
             <input
@@ -158,7 +158,7 @@ export default function Profile() {
               })}
             />
             {pwdErrors.confirmPassword && (
-              <p className="text-xs text-rose-400 mt-1">{pwdErrors.confirmPassword.message}</p>
+              <p className="text-xs text-rose-600 mt-1">{pwdErrors.confirmPassword.message}</p>
             )}
           </div>
           <button type="submit" disabled={savingPwd} className="btn-primary">

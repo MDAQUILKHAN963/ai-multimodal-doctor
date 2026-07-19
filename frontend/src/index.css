@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,44 +7,51 @@
 @layer base {
   html, body, #root { height: 100%; }
   body {
-    background-color: #0a0e1a;
-    color: #f1f5f9;
-    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: #f4f7fb;
+    color: #334155;
+    font-family: 'Poppins', 'Inter', 'Segoe UI', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   * { box-sizing: border-box; }
+
+  h1, h2, h3 { color: #132a54; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #eef2f7; }
+  ::-webkit-scrollbar-thumb { background: #c7d3e4; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #a9bbd4; }
 }
 
 @layer components {
-  /* Cards */
+  /* Cards — white with soft navy shadow (AdhereTech style) */
   .card {
-    @apply bg-dark-700 border border-slate-700/60 rounded-2xl;
+    @apply bg-white border border-slate-200 rounded-2xl shadow-card;
   }
   .card-glow {
-    @apply bg-dark-700 border border-blue-500/20 rounded-2xl shadow-glow;
+    @apply bg-white border border-blue-200 rounded-2xl shadow-glow;
   }
 
   /* Buttons */
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-semibold
+    @apply bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold
            px-5 py-2.5 rounded-xl transition-all duration-150 disabled:opacity-40
            disabled:cursor-not-allowed shadow-glow;
   }
   .btn-ghost {
-    @apply bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white
-           font-medium px-5 py-2.5 rounded-xl border border-slate-700
+    @apply bg-white hover:bg-slate-50 text-slate-600 hover:text-navy-900
+           font-medium px-5 py-2.5 rounded-xl border border-slate-200
            transition-all duration-150 disabled:opacity-40;
   }
   .btn-danger {
-    @apply bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 font-medium
-           px-4 py-2 rounded-xl border border-rose-500/20 transition-all text-sm;
+    @apply bg-rose-50 hover:bg-rose-100 text-rose-600 font-medium
+           px-4 py-2 rounded-xl border border-rose-200 transition-all text-sm;
   }
 
   /* Inputs */
   .input {
-    @apply w-full bg-dark-600 border border-slate-700 rounded-xl px-4 py-2.5
-           text-slate-100 text-sm placeholder:text-slate-500
-           focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
+    @apply w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5
+           text-slate-800 text-sm placeholder:text-slate-400
+           focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500
            transition;
   }
 
@@ -53,7 +62,7 @@
 
   /* Section titles */
   .section-title {
-    @apply text-base font-semibold text-slate-200 mb-4;
+    @apply text-base font-semibold text-navy-900 mb-4;
   }
 
   /* Badge */
@@ -61,9 +70,14 @@
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
   }
 
-  /* Glow divider */
+  /* Divider */
   .glow-divider {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-blue-500/30 to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-transparent via-blue-300/60 to-transparent;
+  }
+
+  /* AdhereTech-style geometric square accents */
+  .geo-square {
+    @apply absolute rounded-md pointer-events-none;
   }
 }
 
@@ -83,9 +97,9 @@
     to   { opacity: 1; transform: translateY(0); }
   }
   .text-glow {
-    text-shadow: 0 0 20px rgba(59,130,246,0.6);
+    text-shadow: none;
   }
   .border-glow {
-    box-shadow: 0 0 0 1px rgba(59,130,246,0.3), 0 0 20px rgba(59,130,246,0.1);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25), 0 8px 24px rgba(37, 99, 235, 0.10);
   }
 }

@@ -29,24 +29,26 @@ export default function Dashboard() {
   return (
     <div className="space-y-8 animate-slide-up">
 
-      {/* Hero header — Image 1 inspired */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0d1b3e] via-[#0f2254] to-[#0a1628] border border-blue-500/20 p-8 shadow-glow">
-        {/* Background glow orbs */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+      {/* Hero header — AdhereTech-style blue panel with geometric accents */}
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-navy-800 via-blue-700 to-blue-600 p-8 shadow-glow">
+        {/* Geometric square accents */}
+        <div className="geo-square top-6 right-10 w-10 h-10 bg-mint-400/80 rotate-6" />
+        <div className="geo-square top-16 right-28 w-5 h-5 bg-white/25 -rotate-12" />
+        <div className="geo-square bottom-8 right-52 w-7 h-7 bg-mint-300/40 rotate-45" />
+        <div className="geo-square -bottom-3 -left-3 w-16 h-16 bg-white/10 rotate-12" />
 
         <div className="relative z-10">
-          <p className="text-blue-400 text-sm font-semibold mb-1">{greeting},</p>
-          <h1 className="text-3xl font-black text-white text-glow">{user?.name || 'Doctor'}</h1>
-          <p className="text-slate-400 mt-2 text-sm max-w-lg">
+          <p className="text-mint-300 text-sm font-semibold mb-1">{greeting},</p>
+          <h1 className="text-3xl font-black !text-white">{user?.name || 'Doctor'}</h1>
+          <p className="text-blue-100/90 mt-2 text-sm max-w-lg">
             AI-powered chest X-ray analysis, symptom assessment, and medical report generation.
           </p>
 
-          {/* Stat pills — Image 1 style */}
+          {/* Stat pills */}
           <div className="flex flex-wrap gap-3 mt-6">
-            {STAT_PILLS.map(({ key, label, icon, from, to }) => (
+            {STAT_PILLS.map(({ key, label, icon }) => (
               <div key={key}
-                className={`bg-gradient-to-b ${from} ${to} rounded-2xl px-5 py-3 min-w-[100px] text-center shadow-lg`}>
+                className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-5 py-3 min-w-[100px] text-center">
                 <span className="text-xl">{icon}</span>
                 <p className="text-2xl font-black text-white mt-1">{statValues[key]}</p>
                 <p className="text-xs text-white/70 font-medium">{label}</p>
@@ -64,13 +66,13 @@ export default function Dashboard() {
               🫁
             </div>
             <div>
-              <p className="font-bold text-white">X-ray Analysis</p>
+              <p className="font-bold text-navy-900">X-ray Analysis</p>
               <p className="text-xs text-slate-500 mt-0.5">AI-powered chest X-ray classification</p>
             </div>
           </div>
           <div className="mt-4 flex items-center gap-2">
-            <span className="badge bg-blue-500/20 text-blue-400 border border-blue-500/30">Deep Learning</span>
-            <span className="badge bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Visual Heatmap</span>
+            <span className="badge bg-blue-500/20 text-blue-600 border border-blue-500/30">Deep Learning</span>
+            <span className="badge bg-cyan-500/20 text-cyan-600 border border-cyan-500/30">Visual Heatmap</span>
           </div>
         </Link>
 
@@ -80,13 +82,13 @@ export default function Dashboard() {
               💬
             </div>
             <div>
-              <p className="font-bold text-white">Symptom Checker</p>
+              <p className="font-bold text-navy-900">Symptom Checker</p>
               <p className="text-xs text-slate-500 mt-0.5">AI symptom analysis with medical knowledge</p>
             </div>
           </div>
           <div className="mt-4 flex items-center gap-2">
-            <span className="badge bg-violet-500/20 text-violet-400 border border-violet-500/30">Symptom Detection</span>
-            <span className="badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Medical Knowledge</span>
+            <span className="badge bg-violet-500/20 text-violet-600 border border-violet-500/30">Symptom Detection</span>
+            <span className="badge bg-emerald-500/20 text-emerald-600 border border-emerald-500/30">Medical Knowledge</span>
           </div>
         </Link>
       </div>
@@ -125,13 +127,13 @@ export default function Dashboard() {
             ) : (
               <ul className="space-y-3">
                 {stats.recent.map((s) => (
-                  <li key={s._id} className="flex items-center gap-3 p-3 rounded-xl bg-dark-600 border border-slate-700/40">
+                  <li key={s._id} className="flex items-center gap-3 p-3 rounded-xl bg-dark-600 border border-slate-200">
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0 ${
                       s.kind === 'xray' ? 'bg-blue-500/20' : 'bg-violet-500/20'}`}>
                       {s.kind === 'xray' ? '🫁' : '💬'}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-slate-200 truncate">
+                      <p className="text-sm font-semibold text-slate-800 truncate">
                         {s.kind === 'xray' ? (s.label || 'X-ray') : 'Symptom check'}
                       </p>
                       {s.kind === 'xray' && s.confidence != null && (
@@ -145,7 +147,7 @@ export default function Dashboard() {
                 ))}
               </ul>
             )}
-            <Link to="/history" className="block mt-4 text-sm text-blue-400 hover:text-blue-300 font-medium transition">
+            <Link to="/history" className="block mt-4 text-sm text-blue-600 hover:text-blue-700 font-medium transition">
               View all history &rarr;
             </Link>
           </div>
@@ -158,7 +160,7 @@ export default function Dashboard() {
         <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-3">Capabilities</p>
         <div className="flex flex-wrap gap-2">
           {['X-ray Classification','Visual Heatmap','Symptom Detection','Medical Knowledge Base','AI Assistant','Real-time Alerts','PDF Reports','Scan History'].map((t) => (
-            <span key={t} className="badge bg-slate-800 text-slate-400 border border-slate-700 text-xs">
+            <span key={t} className="badge bg-slate-100 text-slate-500 border border-slate-200 text-xs">
               {t}
             </span>
           ))}

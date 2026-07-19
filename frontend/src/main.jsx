@@ -22,14 +22,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             position="top-right"
             toastOptions={{
               style: {
-                background: '#1a2236',
-                color: '#f1f5f9',
-                border: '1px solid rgba(99,102,241,0.2)',
+                background: '#ffffff',
+                color: '#132a54',
+                border: '1px solid #dbe4f0',
                 borderRadius: '12px',
                 fontSize: '14px',
+                boxShadow: '0 8px 24px rgba(19,42,84,0.10)',
               },
-              success: { iconTheme: { primary: '#22c55e', secondary: '#1a2236' } },
-              error:   { iconTheme: { primary: '#f43f5e', secondary: '#1a2236' } },
+              success: { iconTheme: { primary: '#2fbf8f', secondary: '#ffffff' } },
+              error:   { iconTheme: { primary: '#f43f5e', secondary: '#ffffff' } },
             }}
           />
         </SocketProvider>

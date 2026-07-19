@@ -22,22 +22,31 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center animate-fade-in">
+    <div className="relative min-h-[80vh] flex items-center justify-center animate-fade-in">
+      {/* AdhereTech-style geometric accents */}
+      <div className="geo-square top-10 left-[12%] w-10 h-10 bg-mint-400/50 rotate-12" />
+      <div className="geo-square top-28 left-[20%] w-4 h-4 bg-blue-600/30 -rotate-6" />
+      <div className="geo-square bottom-16 right-[14%] w-12 h-12 bg-blue-600/15 rotate-45" />
+      <div className="geo-square bottom-32 right-[22%] w-5 h-5 bg-mint-400/60 rotate-12" />
+
       <div className="w-full max-w-md">
 
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mx-auto mb-5 shadow-glow">
-            <span className="text-white text-3xl font-black">AI</span>
+          <div className="relative w-16 h-16 mx-auto mb-5">
+            <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded bg-mint-400" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-800 to-blue-600 flex items-center justify-center shadow-glow">
+              <span className="text-white text-3xl font-black">AI</span>
+            </div>
           </div>
-          <h1 className="text-2xl font-bold text-white">Welcome back</h1>
+          <h1 className="text-2xl font-bold text-navy-900">Welcome back</h1>
           <p className="text-slate-500 mt-1 text-sm">Sign in to AI Doctor</p>
         </div>
 
         <div className="card p-8">
           <form onSubmit={submit} className="space-y-5">
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
                 Email address
               </label>
               <input type="email" required autoComplete="email"
@@ -46,7 +55,7 @@ export default function Login() {
                 className="input" />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
                 Password
               </label>
               <input type="password" required autoComplete="current-password"
@@ -56,7 +65,7 @@ export default function Login() {
             </div>
 
             {error && (
-              <div className="bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm px-4 py-3 rounded-xl">
+              <div className="bg-rose-500/10 border border-rose-500/30 text-rose-600 text-sm px-4 py-3 rounded-xl">
                 {error}
               </div>
             )}
@@ -77,13 +86,13 @@ export default function Login() {
 
           <div className="space-y-3 text-center">
             <p className="text-sm text-slate-500">
-              <Link to="/forgot-password" className="text-slate-400 hover:text-slate-300 transition text-xs">
+              <Link to="/forgot-password" className="text-slate-500 hover:text-slate-700 transition text-xs">
                 Forgot your password?
               </Link>
             </p>
             <p className="text-sm text-slate-500">
               No account?{' '}
-              <Link to="/register" className="text-blue-400 font-semibold hover:text-blue-300 transition">
+              <Link to="/register" className="text-blue-600 font-semibold hover:text-blue-700 transition">
                 Create one free
               </Link>
             </p>

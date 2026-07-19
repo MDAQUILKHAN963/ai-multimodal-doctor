@@ -48,7 +48,7 @@ export default function Settings() {
   return (
     <div className="max-w-2xl mx-auto space-y-6 animate-slide-up">
       <div>
-        <h1 className="text-2xl font-black text-white">Settings</h1>
+        <h1 className="text-2xl font-black text-navy-900">Settings</h1>
         <p className="text-slate-500 text-sm mt-1">Customize your AI Doctor experience.</p>
       </div>
 
@@ -58,7 +58,7 @@ export default function Settings() {
 
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-slate-200">Theme</p>
+            <p className="text-sm font-medium text-slate-800">Theme</p>
             <p className="text-xs text-slate-500 mt-0.5">Interface color scheme</p>
           </div>
           <select
@@ -104,7 +104,7 @@ export default function Settings() {
 
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-slate-200">Measurement units</p>
+            <p className="text-sm font-medium text-slate-800">Measurement units</p>
             <p className="text-xs text-slate-500 mt-0.5">Used in reports and analysis</p>
           </div>
           <select
@@ -119,7 +119,7 @@ export default function Settings() {
 
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-slate-200">Language</p>
+            <p className="text-sm font-medium text-slate-800">Language</p>
             <p className="text-xs text-slate-500 mt-0.5">Display language</p>
           </div>
           <select
@@ -159,12 +159,12 @@ function ToggleRow({ label, desc, checked, onChange }) {
   return (
     <div className="flex items-center justify-between">
       <div>
-        <p className="text-sm font-medium text-slate-200">{label}</p>
+        <p className="text-sm font-medium text-slate-800">{label}</p>
         {desc && <p className="text-xs text-slate-500 mt-0.5">{desc}</p>}
       </div>
       <label className="relative inline-flex items-center cursor-pointer">
         <input type="checkbox" className="sr-only peer" checked={checked} onChange={onChange} />
-        <div className="w-10 h-5 bg-slate-700 rounded-full peer
+        <div className="w-10 h-5 bg-slate-200 rounded-full peer
                         peer-checked:bg-blue-600 transition-colors
                         after:content-[''] after:absolute after:top-0.5 after:left-0.5
                         after:w-4 after:h-4 after:rounded-full after:bg-white

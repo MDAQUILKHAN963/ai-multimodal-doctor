@@ -85,7 +85,7 @@ export default function History() {
   return (
     <div className="space-y-6 animate-slide-up">
       <div>
-        <h1 className="text-2xl font-black text-white">Scan History</h1>
+        <h1 className="text-2xl font-black text-navy-900">Scan History</h1>
         <p className="text-slate-500 text-sm mt-1">
           All past analyses — download PDF reports or delete entries.
         </p>
@@ -107,8 +107,8 @@ export default function History() {
               onClick={() => setKind(value)}
               className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all ${
                 kind === value
-                  ? 'bg-blue-500/20 text-blue-400 border-blue-500/30'
-                  : 'bg-dark-600 text-slate-400 border-slate-700 hover:border-slate-500'
+                  ? 'bg-blue-500/20 text-blue-600 border-blue-500/30'
+                  : 'bg-dark-600 text-slate-500 border-slate-200 hover:border-slate-500'
               }`}
             >
               {label}
@@ -131,10 +131,10 @@ export default function History() {
       {/* Empty state */}
       {!loading && scans.length === 0 && (
         <div className="card p-16 flex flex-col items-center text-center">
-          <div className="w-20 h-20 rounded-3xl bg-slate-800 border border-slate-700 flex items-center justify-center text-4xl mb-4">
+          <div className="w-20 h-20 rounded-3xl bg-slate-100 border border-slate-200 flex items-center justify-center text-4xl mb-4">
             📋
           </div>
-          <p className="font-semibold text-slate-400">
+          <p className="font-semibold text-slate-500">
             {search || kind ? 'No matching scans' : 'No scans yet'}
           </p>
           <p className="text-sm text-slate-600 mt-1">
@@ -148,7 +148,7 @@ export default function History() {
       {/* Table */}
       {!loading && scans.length > 0 && (
         <div className="card overflow-hidden">
-          <div className="grid grid-cols-12 gap-3 px-5 py-3 bg-dark-600 border-b border-slate-800">
+          <div className="grid grid-cols-12 gap-3 px-5 py-3 bg-dark-600 border-b border-slate-200">
             {['Type', 'Result / Input', 'Details', 'Confidence', 'Date', ''].map((h, i) => (
               <div
                 key={i}
@@ -177,7 +177,7 @@ export default function History() {
                 </div>
 
                 <div className="col-span-3">
-                  <p className="text-sm font-semibold text-slate-200">
+                  <p className="text-sm font-semibold text-slate-800">
                     {s.kind === 'xray' ? (s.label || 'X-ray') : 'Symptom check'}
                   </p>
                   <p className="text-xs text-slate-600 mt-0.5">
@@ -199,8 +199,8 @@ export default function History() {
                 <div className="col-span-2">
                   {s.kind === 'xray' && s.confidence != null ? (
                     <div>
-                      <p className="text-xs text-slate-400 mb-1">{Math.round(s.confidence * 100)}%</p>
-                      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                      <p className="text-xs text-slate-500 mb-1">{Math.round(s.confidence * 100)}%</p>
+                      <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
                         <div
                           className="h-1.5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400"
                           style={{ width: `${Math.round(s.confidence * 100)}%` }}
@@ -213,7 +213,7 @@ export default function History() {
                 </div>
 
                 <div className="col-span-2">
-                  <p className="text-xs text-slate-400">{new Date(s.createdAt).toLocaleDateString()}</p>
+                  <p className="text-xs text-slate-500">{new Date(s.createdAt).toLocaleDateString()}</p>
                   <p className="text-xs text-slate-600">
                     {new Date(s.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
@@ -224,7 +224,7 @@ export default function History() {
                     onClick={() => downloadReport(s._id)}
                     disabled={downloading === s._id}
                     title="Download PDF"
-                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 text-xs border border-blue-500/20 transition disabled:opacity-40"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 text-xs border border-blue-500/20 transition disabled:opacity-40"
                   >
                     {downloading === s._id ? '…' : '↓'}
                   </button>
@@ -232,7 +232,7 @@ export default function History() {
                     onClick={() => deleteScan(s._id)}
                     disabled={deleting === s._id}
                     title="Delete"
-                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 text-xs border border-rose-500/20 transition disabled:opacity-40"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 text-xs border border-rose-500/20 transition disabled:opacity-40"
                   >
                     {deleting === s._id ? '…' : '✕'}
                   </button>
@@ -261,7 +261,7 @@ export default function History() {
               className={`w-8 h-8 rounded-lg text-sm font-medium transition-all ${
                 n === pagination.page
                   ? 'bg-blue-600 text-white shadow-glow'
-                  : 'bg-dark-600 text-slate-400 hover:bg-dark-500 hover:text-slate-200 border border-slate-700'
+                  : 'bg-dark-600 text-slate-500 hover:bg-dark-500 hover:text-slate-800 border border-slate-200'
               }`}
             >
               {n}

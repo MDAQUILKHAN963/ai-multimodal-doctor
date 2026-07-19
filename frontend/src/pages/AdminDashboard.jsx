@@ -56,19 +56,19 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6 animate-slide-up">
       <div>
-        <h1 className="text-2xl font-black text-white">Admin Dashboard</h1>
+        <h1 className="text-2xl font-black text-navy-900">Admin Dashboard</h1>
         <p className="text-slate-500 text-sm mt-1">
-          Signed in as <span className="text-amber-400">{user?.email}</span> — admin access.
+          Signed in as <span className="text-amber-600">{user?.email}</span> — admin access.
         </p>
       </div>
 
       {/* Stats row */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
-          { label: 'Total users',  value: stats.totalUsers, color: 'text-blue-400' },
+          { label: 'Total users',  value: stats.totalUsers, color: 'text-blue-600' },
           { label: 'Total scans',  value: stats.totalScans, color: 'text-cyan-400' },
-          { label: 'X-ray scans', value: stats.xrayCount,  color: 'text-violet-400' },
-          { label: 'Symptom checks', value: stats.symCount, color: 'text-emerald-400' },
+          { label: 'X-ray scans', value: stats.xrayCount,  color: 'text-violet-600' },
+          { label: 'Symptom checks', value: stats.symCount, color: 'text-emerald-600' },
         ].map(({ label, value, color }) => (
           <div key={label} className="card p-5">
             <p className="text-xs text-slate-500 uppercase tracking-widest">{label}</p>
@@ -78,15 +78,15 @@ export default function AdminDashboard() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-2 border-b border-slate-800 pb-0">
+      <div className="flex gap-2 border-b border-slate-200 pb-0">
         {TABS.map(({ key, label }) => (
           <button
             key={key}
             onClick={() => setTab(key)}
             className={`px-4 py-2 text-sm font-medium transition-all border-b-2 -mb-px ${
               tab === key
-                ? 'border-blue-500 text-blue-400'
-                : 'border-transparent text-slate-500 hover:text-slate-300'
+                ? 'border-blue-500 text-blue-600'
+                : 'border-transparent text-slate-500 hover:text-slate-700'
             }`}
           >
             {label}
@@ -99,7 +99,7 @@ export default function AdminDashboard() {
       {/* Users table */}
       {!loading && tab === 'users' && (
         <div className="card overflow-hidden">
-          <div className="grid grid-cols-12 gap-3 px-5 py-3 bg-dark-600 border-b border-slate-800">
+          <div className="grid grid-cols-12 gap-3 px-5 py-3 bg-dark-600 border-b border-slate-200">
             {['Name', 'Email', 'Role', 'Joined', ''].map((h, i) => (
               <div
                 key={i}
@@ -119,14 +119,14 @@ export default function AdminDashboard() {
                   <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center shrink-0">
                     <span className="text-white text-xs font-bold">{u.name?.[0]?.toUpperCase()}</span>
                   </div>
-                  <span className="text-sm font-medium text-slate-200 truncate">{u.name}</span>
+                  <span className="text-sm font-medium text-slate-800 truncate">{u.name}</span>
                 </div>
-                <div className="col-span-4 text-sm text-slate-400 truncate">{u.email}</div>
+                <div className="col-span-4 text-sm text-slate-500 truncate">{u.email}</div>
                 <div className="col-span-2">
                   <span className={`badge ${
                     u.role === 'admin'
-                      ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                      : 'bg-slate-700 text-slate-400'
+                      ? 'bg-amber-500/20 text-amber-600 border border-amber-500/30'
+                      : 'bg-slate-200 text-slate-500'
                   }`}>
                     {u.role}
                   </span>
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
       {/* Scans table */}
       {!loading && tab === 'scans' && (
         <div className="card overflow-hidden">
-          <div className="grid grid-cols-12 gap-3 px-5 py-3 bg-dark-600 border-b border-slate-800">
+          <div className="grid grid-cols-12 gap-3 px-5 py-3 bg-dark-600 border-b border-slate-200">
             {['User', 'Type', 'Result', 'Confidence', 'Date'].map((h, i) => (
               <div
                 key={i}
@@ -171,18 +171,18 @@ export default function AdminDashboard() {
             {scans.map((s) => (
               <li key={s._id} className="grid grid-cols-12 gap-3 px-5 py-4 items-center hover:bg-dark-600/50 transition-colors">
                 <div className="col-span-3">
-                  <p className="text-sm font-medium text-slate-200 truncate">{s.userId?.name || '—'}</p>
+                  <p className="text-sm font-medium text-slate-800 truncate">{s.userId?.name || '—'}</p>
                   <p className="text-xs text-slate-600 truncate">{s.userId?.email || '—'}</p>
                 </div>
                 <div className="col-span-2">
-                  <span className={`badge ${s.kind === 'xray' ? 'bg-blue-500/20 text-blue-400' : 'bg-violet-500/20 text-violet-400'}`}>
+                  <span className={`badge ${s.kind === 'xray' ? 'bg-blue-500/20 text-blue-600' : 'bg-violet-500/20 text-violet-600'}`}>
                     {s.kind === 'xray' ? '🫁 X-ray' : '💬 Symptoms'}
                   </span>
                 </div>
-                <div className="col-span-3 text-sm text-slate-300 truncate">
+                <div className="col-span-3 text-sm text-slate-700 truncate">
                   {s.label || s.possibleConditions?.slice(0, 1).join(', ') || '—'}
                 </div>
-                <div className="col-span-2 text-sm text-slate-400">
+                <div className="col-span-2 text-sm text-slate-500">
                   {s.confidence != null ? `${Math.round(s.confidence * 100)}%` : '—'}
                 </div>
                 <div className="col-span-2 text-xs text-slate-500">
